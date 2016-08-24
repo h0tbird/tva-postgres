@@ -8,7 +8,9 @@
   "maxLaunchDelaySeconds": 3600,
   "labels": {
     "owner": "tva",
-    "HAPROXY_GROUP": "internal"
+    "HAPROXY_GROUP": "internal",
+    "HAPROXY_DEPLOYMENT_GROUP": "tva_postgres",
+    "HAPROXY_DEPLOYMENT_ALT_PORT": "10013"
   },
   "container": {
     "type": "DOCKER",
@@ -16,7 +18,7 @@
       "image": "softonic/tva-postgres:latest",
       "network": "BRIDGE",
       "portMappings": [
-        { "containerPort": 5432, "hostPort": 0 }
+        { "containerPort": 5432, "hostPort": 0, "servicePort": 10012 }
       ],
       "privileged": false,
       "forcePullImage": true
