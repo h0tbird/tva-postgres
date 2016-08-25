@@ -10,7 +10,7 @@
     "owner": "tva",
     "HAPROXY_GROUP": "internal",
     "HAPROXY_DEPLOYMENT_GROUP": "tva_postgres",
-    "HAPROXY_DEPLOYMENT_ALT_PORT": "10013"
+    "HAPROXY_DEPLOYMENT_ALT_PORT": "10015"
   },
   "container": {
     "type": "DOCKER",
@@ -18,7 +18,7 @@
       "image": "internal-registry-sys.marathon:5000/tva/postgres:latest",
       "network": "BRIDGE",
       "portMappings": [
-        { "containerPort": 5432, "hostPort": 0, "servicePort": 10012 }
+        { "containerPort": 5432, "hostPort": 0, "servicePort": 10014 }
       ],
       "privileged": false,
       "forcePullImage": true
