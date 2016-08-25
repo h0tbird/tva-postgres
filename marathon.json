@@ -15,7 +15,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "softonic/tva-postgres:latest",
+      "image": "internal-registry-sys.marathon:5000/tva/postgres:latest",
       "network": "BRIDGE",
       "portMappings": [
         { "containerPort": 5432, "hostPort": 0, "servicePort": 10012 }
