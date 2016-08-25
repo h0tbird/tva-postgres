@@ -4,7 +4,7 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.3">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -36,6 +36,13 @@
     <hudson.tasks.Shell>
       <command>/bin/bash -ex bin/jenkins build</command>
     </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>/bin/bash -ex bin/jenkins push</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>/bin/bash -ex bin/jenkins deploy</command>
+    </hudson.tasks.Shell>
   </builders>
+  <publishers/>
   <buildWrappers/>
 </project>

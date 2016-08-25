@@ -3,8 +3,6 @@
 [ -z "${MARATHON_URL}" ] && echo 'Ops! MARATHON_URL is not set' && exit 1
 [ -z "${MARATHON_LB_URL}" ] && echo 'Ops! MARATHON_LB_URL is not set' && exit 1
 
-echo "--------------${PWD}--------------"
-
 docker run -i --rm \
   --net host \
   --volume ${PWD}:/data \
