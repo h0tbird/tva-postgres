@@ -3,7 +3,7 @@
 [ -z "${MARATHON_URL}" ] && echo 'Ops! MARATHON_URL is not set' && exit 1
 [ -z "${MARATHON_LB_URL}" ] && echo 'Ops! MARATHON_LB_URL is not set' && exit 1
 
-docker run -it --rm \
+docker run -i --rm \
   --net host \
   --volume ${PWD}:/data \
   --entrypoint ./zdd.py \
