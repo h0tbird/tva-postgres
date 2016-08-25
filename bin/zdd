@@ -5,7 +5,7 @@
 
 docker run -i --rm \
   --net host \
-  --volume ${PWD}:/data \
+  --volume ${1:-${PWD}}:/data \
   --entrypoint ./zdd.py \
   mesosphere/marathon-lb:v1.3.3 \
   --force \

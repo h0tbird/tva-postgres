@@ -52,8 +52,7 @@ case $1 in
 
     # Deploy to Marathon:
     cat marathon.json | jq ".container.docker.image |= \"${CID}:${BUILD_NUMBER}\"" > /tmp/marathon.json
-    mv /tmp/marathon.json marathon.json
-    MARATHON_URL=${MARATHON_URL} MARATHON_LB_URL=${MARATHON_LB_URL} ./bin/zdd
+    MARATHON_URL=${MARATHON_URL} MARATHON_LB_URL=${MARATHON_LB_URL} ./bin/zdd /tmp
     ;;
 
 esac
