@@ -1,5 +1,5 @@
 {
-  "id": "postgres",
+  "id": "/tva/postgres",
   "instances": 1,
   "cpus": 0.5,
   "mem": 1024,
