@@ -1,13 +1,24 @@
 #!/bin/bash
 
+#------------
+# Variables:
+#------------
+
+JENKINS_URL='http://jenkins-sys.marathon'
+JENKINS_PROJECT='docker-tva-postgres'
+REGISTRY='internal-registry-sys.marathon:5000'
+CID="${REGISTRY}/tva/postgres"
+MARATHON_URL='http://marathon:8080'
+
+#--------------
+# Entry point:
+#--------------
+
 case $1 in
 
   'setup')
 
-    # Variables:
-    JENKINS_URL='http://jenkins-sys.marathon'
-    JENKINS_PROJECT='docker-tva-postgres'
-
+    # Setup the Jenkins job:
     curl -sX POST "${JENKINS_URL}/createItem?name=${JENKINS_PROJECT}" \
       --data-binary "@jenkins.xml" \
       -H "Content-Type: text/xml"
@@ -15,14 +26,12 @@ case $1 in
 
   'build')
 
-    # Variables:
-    REGISTRY='internal-registry-sys.marathon:5000'
-    CID="${REGISTRY}/tva/postgres"
-    MARATHON_URL='http://marathon:8080'
-
     # Build the container:
     docker build --rm -t ${CID}:${BUILD_NUMBER} .
     docker tag ${CID}:${BUILD_NUMBER} ${CID}:latest
+    ;;
+
+  'push')
 
     # Authenticate if needed:
     [[ "${EMAIL}" && "${USER}" && "${PASSWORD}" ]] && \
@@ -35,6 +44,9 @@ case $1 in
     # Logout if needed:
     [[ "${EMAIL}" && "${USER}" && "${PASSWORD}" ]] && \
     docker logout
+    ;;
+
+  'deploy')
 
     # Deploy to Marathon:
     cat marathon.json | jq ".container.docker.image |= \"${CID}:${BUILD_NUMBER}\"" > /tmp/marathon.json
