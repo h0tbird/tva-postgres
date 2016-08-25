@@ -4,10 +4,11 @@
 # Variables:
 #------------
 
+ID='postgres'
 JENKINS_URL='http://jenkins-sys.marathon'
-JENKINS_PROJECT='docker-tva-postgres'
+JENKINS_PROJECT="docker-tva-${ID}"
 REGISTRY='internal-registry-sys.marathon:5000'
-CID="${REGISTRY}/tva/postgres"
+CID="${REGISTRY}/tva/${ID}"
 MARATHON_URL='http://marathon:8080'
 
 #--------------
@@ -51,7 +52,7 @@ case $1 in
     # Deploy to Marathon:
     cat marathon.json | jq ".container.docker.image |= \"${CID}:${BUILD_NUMBER}\"" > /tmp/marathon.json
     mv /tmp/marathon.json marathon.json
-    MARATHON_URL=${MARATHON_URL} ./bin/marathon deploy
+    MARATHON_URL=${MARATHON_URL} ./bin/zdd
     ;;
 
 esac
