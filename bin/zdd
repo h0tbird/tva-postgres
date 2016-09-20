@@ -12,4 +12,5 @@ docker run -i --rm \
   --json /data/marathon.json \
   --marathon ${MARATHON_URL} \
   --marathon-lb ${MARATHON_LB_URL} \
-  --syslog-socket /dev/null
+  --syslog-socket /dev/null \
+  --max-wait 10
