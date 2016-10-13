@@ -7,7 +7,7 @@ docker run -i --rm \
   --net host \
   --volume ${1:-${PWD}}:/data \
   --entrypoint ./zdd.py \
-  mesosphere/marathon-lb:v1.3.5 \
+  mesosphere/marathon-lb:v1.4.1 \
   --force \
   --json /data/marathon.json \
   --marathon ${MARATHON_URL} \
