@@ -7,7 +7,7 @@
 
 Containerized PostgreSQL service.
 
-#### clone
+#### Clone
 
 Do not clone this repository.  
 The control repository is named `the-voting-app`.  
@@ -19,8 +19,16 @@ git clone --recursive ${GIT_SERVER_URL}/the-voting-app.git
 
 #### Tip
 
-Run the command below to query the `votes` table:
+Query the `votes` table:
 
 ```
-docker exec -it <docker-id> /bin/bash -c "psql -U postgres -d postgres -c 'SELECT * FROM votes'"
+docker exec -it <docker-id> /bin/bash -c \
+  "psql -U postgres -d postgres -c 'SELECT * FROM votes'"
+```
+
+Query the results:
+
+```
+docker exec -it <docker-id> /bin/bash -c \
+  "psql -U postgres -d postgres -c 'SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote'"
 ```
