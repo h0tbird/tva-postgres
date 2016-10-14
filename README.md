@@ -16,3 +16,11 @@ Perform a recursive clone of the control repository:
 ```
 git clone --recursive ${GIT_SERVER_URL}/the-voting-app.git
 ```
+
+#### Tip
+
+Run the command below to query the `votes` table:
+
+```
+docker exec -it <docker-id> /bin/bash -c "psql -U postgres -d postgres -c 'SELECT * FROM votes'"
+```
