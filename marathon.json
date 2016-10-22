@@ -15,7 +15,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "katosys/tva-postgres:latest",
+      "image": "quay.io/kato/tva-postgres:latest",
       "network": "BRIDGE",
       "portMappings": [
         { "containerPort": 5432, "hostPort": 0, "servicePort": 10014 }
