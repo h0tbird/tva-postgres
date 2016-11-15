@@ -9,25 +9,27 @@
   "labels": {
     "owner": "tva",
     "HAPROXY_GROUP": "internal",
-    "HAPROXY_DEPLOYMENT_GROUP": "tva_postgres",
-    "HAPROXY_DEPLOYMENT_ALT_PORT": "10015"
+    "HAPROXY_DEPLOYMENT_GROUP": "tva_postgres"
+  },
+  "ipAddress": {
+    "networkName": "devel",
+    "discovery": {
+      "ports": [
+        { "number": 5432, "name": "postgres", "protocol": "tcp" }
+      ]
+    }
   },
   "container": {
-    "type": "DOCKER",
+    "type": "MESOS",
     "docker": {
       "image": "quay.io/kato/tva-postgres:latest",
-      "network": "BRIDGE",
-      "portMappings": [
-        { "containerPort": 5432, "hostPort": 0, "servicePort": 10014 }
-      ],
-      "privileged": false,
       "forcePullImage": true
     }
   },
   "healthChecks": [
     {
       "protocol": "TCP",
-      "portIndex": 0,
+      "port": 5432,
       "gracePeriodSeconds": 120,
       "intervalSeconds": 30,
       "timeoutSeconds": 10,
