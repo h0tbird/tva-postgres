@@ -24,7 +24,10 @@
     "docker": {
       "image": "quay.io/kato/tva-postgres:latest",
       "forcePullImage": true
-    }
+    },
+    "portMappings": [
+      { "servicePort": 10014 }
+    ]
   },
   "healthChecks": [
     {
