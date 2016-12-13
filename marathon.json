@@ -13,6 +13,10 @@
   },
   "ipAddress": {
     "networkName": "devel",
+    "labels": {
+      "app": "postgres",
+      "group": "tva"
+    },
     "discovery": {
       "ports": [
         { "number": 5432, "name": "postgres", "protocol": "tcp" }
@@ -31,7 +35,7 @@
   },
   "healthChecks": [
     {
-      "protocol": "TCP",
+      "protocol": "MESOS_TCP",
       "port": 5432,
       "gracePeriodSeconds": 120,
       "intervalSeconds": 30,
