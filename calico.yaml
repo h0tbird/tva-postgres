@@ -1,0 +1,13 @@
+- apiVersion: v1
+  kind: policy
+  metadata:
+    name: tva-postgres
+  spec:
+    order: 50
+    selector: group == 'tva' && app == 'postgres'
+    ingress:
+    - action: allow
+      protocol: tcp
+      destination:
+       ports:
+        - 5432
