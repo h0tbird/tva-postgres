@@ -3,12 +3,12 @@
   metadata:
     name: tva-postgres
   spec:
-    selector: app == 'postgres'
+    selector: group == 'tva' && app == 'postgres'
     ingress:
     - action: allow
       protocol: tcp
       source:
-        selector: app in { 'results', 'worker' }
+        selector: group == 'tva' && app in { 'results', 'worker' }
       destination:
         ports:
         - 5432
