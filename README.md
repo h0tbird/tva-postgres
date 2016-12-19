@@ -1,9 +1,9 @@
 <img src="http://45.media.tumblr.com/0370959cd51e9ffd354f8f2e825c05c3/tumblr_n6jwtyRzcU1rwdgsoo1_1280.gif"
   align="right" border="0" width="128" height="128" />
 
-# docker-tva-postgres
+# tva-postgres
 
-[![Build Status](https://travis-ci.org/katosys/docker-tva-postgres.svg?branch=master)](https://travis-ci.org/katosys/docker-tva-postgres)
+[![Build Status](https://travis-ci.org/katosys/tva-postgres.svg?branch=master)](https://travis-ci.org/katosys/tva-postgres)
 
 Containerized PostgreSQL service.
 
