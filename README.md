@@ -3,7 +3,7 @@
 
 # tva-postgres
 
-[![Build Status](https://travis-ci.org/katosys/tva-postgres.svg?branch=master)](https://travis-ci.org/katosys/tva-postgres)
+[![Build Status](https://travis-ci.org/h0tbird/tva-postgres.svg?branch=master)](https://travis-ci.org/h0tbird/tva-postgres)
 
 Containerized PostgreSQL service.
 
