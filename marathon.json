@@ -26,7 +26,7 @@
   "container": {
     "type": "MESOS",
     "docker": {
-      "image": "quay.io/kato/tva-postgres:latest",
+      "image": "quay.io/h0tbird/tva-postgres:latest",
       "forcePullImage": true
     },
     "portMappings": [
