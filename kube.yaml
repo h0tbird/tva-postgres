@@ -13,6 +13,7 @@ spec:
       containers:
       - name: postgres
         image: quay.io/h0tbird/tva-postgres:latest
+        imagePullPolicy: Always
 ---
 kind: Service
 apiVersion: v1
